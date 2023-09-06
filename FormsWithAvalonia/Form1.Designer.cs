@@ -35,9 +35,9 @@ namespace FormsWithAvalonia
             // pnlAvControl
             // 
             pnlAvControl.BackColor = Color.FromArgb(255, 192, 192);
-            pnlAvControl.Location = new Point(74, 62);
+            pnlAvControl.Location = new Point(12, 12);
             pnlAvControl.Name = "pnlAvControl";
-            pnlAvControl.Size = new Size(348, 248);
+            pnlAvControl.Size = new Size(300, 400);
             pnlAvControl.TabIndex = 0;
             // 
             // Form1

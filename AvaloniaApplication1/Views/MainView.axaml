@@ -3,7 +3,8 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:vm="clr-namespace:AvaloniaApplication1.ViewModels"
-             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+     		 xmlns:dialogHost="clr-namespace:DialogHostAvalonia;assembly=DialogHost.Avalonia"
+             mc:Ignorable="d" d:DesignWidth="300" d:DesignHeight="400"
              x:Class="AvaloniaApplication1.Views.MainView"
              x:DataType="vm:MainViewModel">
   <Design.DataContext>
@@ -12,5 +13,41 @@
     <vm:MainViewModel />
   </Design.DataContext>
 
-  <TextBlock Text="{Binding Greeting}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+	<dialogHost:DialogHost CloseOnClickAway="True" Identifier="MainDialogHost" dialogHost:DialogHostStyle.CornerRadius="8">
+		<dialogHost:DialogHost.DialogContent>
+			<StackPanel>
+				<TextBlock Text="Add a new fruit." />
+
+				<TextBox
+				  Margin="0 8 0 0"
+				  HorizontalAlignment="Stretch"
+				  x:Name="FruitTextBox" />
+
+				<StackPanel
+				  Orientation="Horizontal"
+				  HorizontalAlignment="Right">
+					<Button
+					  Classes="Flat"
+					  IsDefault="True"
+					  Margin="0 8 8 0"
+					  Content="ACCEPT"
+					  Command="{Binding OnCloseDialog}"
+					  CommandParameter="{Binding #FruitTextBox.Text}" />
+
+					<Button
+					  Classes="Flat"
+					  IsCancel="True"
+					  Margin="0 8 8 0"
+					  Content="CANCEL"
+					  Command="{Binding OnCloseDialog}" />
+				</StackPanel>
+			</StackPanel>			<!-- put your dialog content here-->
+		</dialogHost:DialogHost.DialogContent>
+		
+	    <Grid ColumnDefinitions="30,2*,.5*" RowDefinitions="Auto,Auto,Auto"  Margin="4" ShowGridLines="true">
+		    <TextBlock Text="{Binding Greeting}" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="1" Grid.Row="0"/>
+		    <Button Content="Click me!" HorizontalAlignment="Center" VerticalAlignment="Center" Command="{Binding OnClickCommand}" Grid.Column="1" Grid.Row="1"/>
+		    <Button Content="Click me too!" HorizontalAlignment="Center" VerticalAlignment="Center" Command="{Binding OnClick2Command}" Grid.Column="1" Grid.Row="2" />
+	    </Grid>
+	</dialogHost:DialogHost>
 </UserControl>

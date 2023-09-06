@@ -22,8 +22,8 @@ namespace FormsWithAvalonia
             // Add the host control to the form. We have to do this manually because the WinFormsAvaloniaControlHost in design time is not working for some reason. 
             WinFormsAvaloniaControlHost avHost = new WinFormsAvaloniaControlHost();
             avHost.Name = "avHost";
-            avHost .Dock = DockStyle.Fill;
-            this.pnlAvControl .Controls.Add(avHost);
+            avHost.Dock = DockStyle.Fill;
+            this.pnlAvControl.Controls.Add(avHost);
 
             // Create a new Avalonia control instance.
             AvaloniaApplication1.Views.MainView view = new AvaloniaApplication1.Views.MainView();
