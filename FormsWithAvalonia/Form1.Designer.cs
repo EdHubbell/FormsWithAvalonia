@@ -30,6 +30,7 @@ namespace FormsWithAvalonia
         private void InitializeComponent()
         {
             pnlAvControl = new Panel();
+            btnNewWindow = new Button();
             SuspendLayout();
             // 
             // pnlAvControl
@@ -40,11 +41,22 @@ namespace FormsWithAvalonia
             pnlAvControl.Size = new Size(300, 400);
             pnlAvControl.TabIndex = 0;
             // 
+            // btnNewWindow
+            // 
+            btnNewWindow.Location = new Point(660, 389);
+            btnNewWindow.Name = "btnNewWindow";
+            btnNewWindow.Size = new Size(128, 23);
+            btnNewWindow.TabIndex = 1;
+            btnNewWindow.Text = "New Window";
+            btnNewWindow.UseVisualStyleBackColor = true;
+            btnNewWindow.Click += btnNewWindow_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(btnNewWindow);
             Controls.Add(pnlAvControl);
             Name = "Form1";
             Text = "Form1";
@@ -54,5 +66,6 @@ namespace FormsWithAvalonia
         #endregion
 
         private Panel pnlAvControl;
+        private Button btnNewWindow;
     }
 }

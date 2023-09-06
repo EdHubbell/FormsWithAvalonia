@@ -6,6 +6,7 @@ using Avalonia.VisualTree;
 using Avalonia.Win32.Interoperability;
 using AvaloniaApplication1.ViewModels;
 using AvaloniaApplication1.Views;
+using System.Windows.Forms;
 //using AvaloniaControls.Desktop;
 
 
@@ -30,11 +31,24 @@ namespace FormsWithAvalonia
 
             // Bind the control to the view model.
             view.DataContext = new MainViewModel();
-            view.InitializeComponent();
+
 
             avHost.Content = view;
 
         }
 
+        private void btnNewWindow_Click(object sender, EventArgs e)
+        {
+            // Create a new Avalonia window instance.
+            var window = new MainWindow();
+
+            // Bind the control to the view model.
+            MainViewModel mainViewModel = new MainViewModel();
+            window.DataContext = mainViewModel;
+
+            mainViewModel.Greeting = "This is the window greeting";
+
+            window.Show();
+        }
     }
 }
